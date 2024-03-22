@@ -1,0 +1,24 @@
+.sobre {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+      text-align: center;
+      margin-top: 50px;
+    }
+  }
+
+  img{
+    max-width: 100%;
+  }
+
+  &__content {
+    padding: 2vw;
+
+    h2{
+      margin-bottom: 24px;
+    }
+  }
+}

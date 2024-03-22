@@ -1,0 +1,108 @@
+@use 'var';
+
+.slider {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+
+  &__slides {
+    width: 400%;
+    height: auto;
+    display: flex;
+
+    input {
+      display: none;
+    }
+
+    &__slide {
+      width: 25%;
+      transition: 1s;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__radio1:checked ~ .slider__slides__slide--first {
+      margin-left: 0;
+    }
+
+    &__radio2:checked ~ .slider__slides__slide--first {
+      margin-left: -25%;
+    }
+
+    &__radio3:checked ~ .slider__slides__slide--first {
+      margin-left: -50%;
+    }
+
+    &__radio4:checked ~ .slider__slides__slide--first {
+      margin-left: -75%;
+    }
+  }
+
+  &__navigation-manual {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    display: flex;
+    justify-content: center;
+
+    .manual-btn {
+      border: 2px solid var.$titleColor;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .5s;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      &:hover {
+        background-color: var.$titleColor;
+      }
+    }
+  }
+
+  &__navigation-auto {
+    position: absolute;
+    width: 800px;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+
+    .auto-btn {
+      border: 2px solid transparent;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .5s;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__slides__radio1:checked ~ .slider__navigation-auto .auto-btn1 {
+    background-color: var.$titleColor;
+  }
+
+  &__slides__radio2:checked ~ .slider__navigation-auto .auto-btn2 {
+    background-color: var.$titleColor;
+  }
+
+  &__slides__radio3:checked ~ .slider__navigation-auto .auto-btn3 {
+    background-color: var.$titleColor;
+  }
+
+  &__slides__radio4:checked ~ .slider__navigation-auto .auto-btn4 {
+    background-color: var.$titleColor;
+  }
+}

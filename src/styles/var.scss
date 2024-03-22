@@ -1,0 +1,93 @@
+// Colors
+
+$bgColor: #040714;
+$titleColor: #f9f9f9;
+$textColor: #e0e0e0;
+$cardColor: #8b0000;
+$bgFooter: rgba(0, 0, 0, 0.05);
+
+// Fonts
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../assets/fonts/Avenir-Bold.woff2);
+  font-weight: 700;
+}
+
+// Mixins
+
+@mixin text($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: $textColor;
+}
+
+@mixin title($fontSize: 40px) {
+  @include text($fontSize);
+  color: $titleColor;
+}
+
+// Aplicando Mixins
+
+// Classes
+
+.text--big {
+  @include text(18px);
+
+  @media (max-width: 768px) {
+    @include text(15px);
+  }
+}
+
+.text{
+  @include text;
+
+  @media (max-width: 768px) {
+    @include text(14px);
+  }
+}
+
+.text--small {
+  @include text(12px);
+
+  @media (max-width: 768px) {
+    @include text(11px);
+  }
+}
+
+.text-link {
+  @include text(18px);
+  color: $titleColor;
+}
+
+// Include title mixin
+
+.title--big{
+  @include title(44px);
+
+  @media (max-width: 768px) {
+    @include title(26px);
+  }
+}
+
+.title{
+  @include title;
+
+  @media (max-width: 768px) {
+    @include title(24px);
+  }
+}
+
+.title--small{
+  @include title(28px);
+
+  @media (max-width: 768px) {
+    @include title(22px);
+  }
+}
